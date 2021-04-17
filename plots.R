@@ -15,10 +15,6 @@ table<-left_join(canada_case_data,canada_vaxx_data,by="Date")%>%
   select(Date,new_cases,total_vaxx)%>%mutate(vaxx_per_thousand=total_vaxx/1000)
 
 
-data <- c("New Cases","Total Vaccinated")
-labels <- data.frame(data = data, x = c(2020-09-01,2021-04-12), y = c(2500,2000))
-
-
 table%>%
   ggplot()+
   geom_point(aes(Date,new_cases),col="red")+
