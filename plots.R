@@ -3,9 +3,16 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 library(readr)
+library(rvest)
 
 cumulative_covid_vaccinations <- read_csv("cumulative-covid-vaccinations.csv")
 owid_covid_data <- read_csv("owid-covid-data.csv")
+
+url<-"https://data.cdc.gov/Case-Surveillance/United-States-COVID-19-Cases-and-Deaths-by-State-o/9mfq-cb36"
+states<-read_html(url)
+
+#test<-states%>%html_nodes(".socrata-visualization-chart-container")%>%html_text()
+  
 
 country<-"United States"
 
